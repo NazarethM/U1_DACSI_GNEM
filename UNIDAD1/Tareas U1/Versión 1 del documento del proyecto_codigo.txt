@@ -1,0 +1,174 @@
+\documentclass[12pt]{report}
+\usepackage[a4paper]{geometry} % Configuración de márgenes y dimensiones de página
+
+\usepackage[utf8]{inputenc} % Codificación de caracteres
+\usepackage[spanish]{babel} % Configuración de idioma español
+\usepackage{amssymb} % Símbolos matemáticos adicionales
+\usepackage{subfigure} % Creación de subfiguras dentro de una figura
+\usepackage{newunicodechar} % Soporte para caracteres Unicode
+\usepackage{graphicx} % Inclusión de imágenes
+\usepackage{amsmath} % Ampliación de funcionalidades matemáticas
+\usepackage{xspace} % Control del espacio después de comandos
+\usepackage{booktabs} % Mejora la apariencia de las tablas
+\usepackage[table,xcdraw]{xcolor} % Colores personalizados para tablas
+\usepackage{url} % Inclusión y formato de enlaces URL
+\usepackage{lineno} % Numeración de líneas
+\usepackage{enumitem} % Control de listas y enumeraciones
+\usepackage{soul} % Resaltado de texto con subrayado
+\usepackage[numbers]{natbib} % Citas bibliográficas y bibliografía
+\usepackage[colorlinks=true, bookmarks=false, citecolor=blue, urlcolor=blue, linkcolor=blue, linktoc=page]{hyperref} % Creación de enlaces y referencias
+\usepackage{titlesec} % Control del formato de títulos de sección
+\usepackage{fancyhdr} % Personalización de encabezados y pies de página
+\usepackage{datetime} % Manipulación de fechas y tiempos
+% Modificar márgenes
+\geometry{left=2.5cm, right=2.5cm, top=2.0cm, bottom=2.0cm}
+% Espaciado entre líneas
+\linespread{1.5} 
+% Cambiar nombre a tablas
+\addto\captionsspanish{\renewcommand{\tablename}{Tabla}}
+% Cambiar nombre a lista de tablas
+\addto\captionsspanish{\renewcommand{\listtablename}{Índice de tablas}}
+% Modificar el estilo de los capítulos
+\titleformat{\chapter}[display]
+{\color{black}\fontfamily{pcr}\LARGE\scshape\raggedleft}
+{\chaptertitlename\ \color{red}\fontsize{20}{00}\mdseries\thechapter} {-10pt} {\color{black}\rmfamily\huge}
+%\titlespacing*{\chapter}{0pt}{0pt}{50pt}
+% Diseño del encabezado y pie de página
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\nouppercase{\leftmark}}
+\fancyhead[R]{\nouppercase{\rightmark}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.1pt}
+% Quitar espacio vertical en listas
+\setlist[itemize]{noitemsep, topsep=0pt}
+% Numerar las secciones
+\setcounter{secnumdepth}{4} % Establece la profundidad de numeración de secciones
+\titleformat{\paragraph}{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{} % Define el formato de las subsubsubsecciones
+% Modificar la tabla de contenido
+\setcounter{tocdepth}{4}
+\addto\captionsspanish{\renewcommand{\contentsname}{Contenido}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% AQUI INICIA EL DOCUMENTO %%%%%%%
+\begin{document}
+\pagenumbering{Roman}
+%%%%%%%%%%%%%%%%%%%%%%%%%%% PORTADA %%%%%%%%%%%%%%%%%%%%%%%%
+\begin{titlepage}
+\newgeometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+\begin{minipage}[c]{0.15\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{01_Figuras/00_TECNM.png}
+\end{minipage}
+\hfill % Espacio horizontal entre las cajas
+\begin{minipage}[c]{0.8\textwidth}
+    \centering
+        \textsc{\large Tecnológico Nacional de México Campus Pabellón de Arteaga}\\[0.3cm]
+        \textsc{\large Tecnologías de lñ Información y Comunicaciones}\\[0.3cm]
+        \hrule height1pt
+        \vspace{0.1cm}
+        \hrule height2pt
+        \vspace{0.3cm}
+\end{minipage}
+
+\begin{minipage}[c]{0.15\textwidth}
+    \vspace{0.5cm}
+    \hspace{0.5cm}
+    \vrule width1pt height15cm 
+    \hspace{0.05cm}
+    \vrule width2pt height15cm
+\end{minipage}
+\hfill % Espacio horizontal entre las cajas
+\begin{minipage}[c]{0.8\textwidth}
+    \centering
+        \textbf{\large Nombre del proyecto AsisList}\\[1cm]
+        \text{\large Por}\\[1cm]
+        \text{\Large Galilea Nazareth Esparza Martinez}\\[1cm]
+        \textit{\large Proyecto de la Materia DACSI}\\[1cm]
+        \text{\large Profesor:}\\[1cm]
+        \text{\Large Eduardo Flores Gallegos}\\[1cm]
+\end{minipage}
+
+\begin{minipage}[c]{0.25\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{01_Figuras/logo.png}
+\end{minipage}
+
+
+\hfill % Espacio horizontal entre las cajas
+\begin{minipage}[c]{0.8\textwidth}
+    \centering
+        \mdseries{\large Pabellón de Arteaga, Aguascalientes, \the\year}
+\end{minipage}
+
+\end{titlepage}
+\restoregeometry
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% RESUMEN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% TABLA DE CONTENIDO %%%%%%%%%%%%%%%%%
+\tableofcontents
+
+\newpage
+\pagenumbering{arabic}
+\section{Introducción}
+Este sistema está diseñado para simplificar la captura y gestión de la información de asistencia de los empleados, facilitando la generación de informes claros y precisos. Su implementación permitirá un control más efectivo de la presencia y el tiempo trabajado, optimizando la administración y apoyando la toma de decisiones.
+
+\subsection{Objetivos}
+\begin{enumerate}
+    \item \textbf{Centralización de la Información:} Consolidar la información de asistencia de todos los empleados en una plataforma única, sin importar la sede a la que pertenezcan.
+    
+    \item \textbf{Facilitar la Captura de Datos:} Ofrecer una interfaz intuitiva que permita a los encargados capturar rápidamente la información de asistencia, descansos, tiempos extras y personal de reemplazo.
+    
+    \item \textbf{Generación de Documentos:} Crear documentos electrónicos en formatos PDF o Excel con las listas de asistencia, listos para imprimir o compartir.
+    
+    \item \textbf{Automatización de Procesos:} Implementar algoritmos para generar automáticamente las listas de asistencia, considerando turnos y quincenas, y organizar la información de manera clara y concisa.
+    
+    \item \textbf{Personalización de Reportes:} Permitir a los usuarios generar reportes personalizados, filtrando la información por sede, turno, empleado o periodo de tiempo.
+\end{enumerate}
+
+\subsubsection{Objetivo General}
+Desarrollar un sistema informático para automatizar la gestión de asistencia de los empleados en diversas sedes, facilitando la captura, almacenamiento y generación de reportes detallados y precisos, considerando turnos y tipos de registro.
+
+\subsection{Etapa 1}
+\subsubsection{Resumen de la Entrevista}
+
+\textbf{Resultados de la Entrevista:} La retroalimentación obtenida en la entrevista/plática se resume a continuación:
+
+\textbf{Formato de Trabajo Anterior}
+\begin{itemize}
+    \item \textbf{Método Anterior:}
+    \begin{itemize}
+        \item Registro manual en hojas de cálculo o papel.
+        \item Generación manual de reportes quincenales.
+    \end{itemize}
+\end{itemize}
+
+\textbf{Diseño y Perfil de Usuario}
+\begin{itemize}
+    \item \textbf{Diseño:}
+    \begin{itemize}
+        \item Interfaz intuitiva para la captura de datos, con opciones para seleccionar el turno y la quincena (supervisores).
+        \item Panel de administración para supervisores que permita revisar y gestionar los datos.
+    \end{itemize}
+    \item \textbf{Perfil de Usuario:}
+    \begin{itemize}
+        \item Encargados y supervisores en diferentes sedes, responsables de capturar y revisar la asistencia de los trabajadores, y de generar reportes basados en la información recopilada.
+    \end{itemize}
+\end{itemize}
+
+\textbf{Tiempo de Uso}
+\begin{itemize}
+    \item El sistema estará en uso continuo, dado que la captura y gestión de asistencia es una necesidad diaria para la empresa.
+\end{itemize}
+
+\textbf{Ubicación de Uso}
+\begin{itemize}
+    \item Desde los dispositivos de los supervisores, a través de una interfaz web o aplicación accesible desde cualquier dispositivo con conexión a internet.
+\end{itemize}
+
+\subsubsection{Requerimientos}
+\citet{NewmanGirvan2004}
+
+\end{document}
+
